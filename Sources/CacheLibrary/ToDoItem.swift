@@ -1,14 +1,14 @@
 import Foundation
 
 public struct ToDoItem {
-    let id: String
-    let text: String
-    let importance: Required
-    let deadline: Date?
-    let done: Bool
-    let created: Date
-    let changed: Date?
-    init(id: String = UUID().uuidString,
+    public let id: String
+    public let text: String
+    public let importance: Required
+    public let deadline: Date?
+    public let done: Bool
+    public let created: Date
+    public let changed: Date?
+    public init(id: String = UUID().uuidString,
          text: String,
          importance: Required = .common,
          deadline: Date? = nil,

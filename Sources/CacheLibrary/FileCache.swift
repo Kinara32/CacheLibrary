@@ -13,6 +13,11 @@ public protocol CacheData {
 @available(macOS 13.0, *)
 @available(iOS 16.0, *)
 public class FileCache: CacheData {
+    
+    public init() {
+        
+    }
+    
     public private(set) var tasks = [String: ToDoItem]()
 
     public func add(_ task: ToDoItem) {
