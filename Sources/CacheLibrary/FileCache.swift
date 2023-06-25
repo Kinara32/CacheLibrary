@@ -1,6 +1,6 @@
 import Foundation
 
-@available(macOS 13.0, *)
+@available(macOS 16.0, *)
 public protocol CacheData {
     var tasks: [String: ToDoItem] { get }
     func add(_ task: ToDoItem)
@@ -9,7 +9,7 @@ public protocol CacheData {
     func load(title: String, format: FileCache.FileCacheFormat) throws
 }
 
-@available(macOS 13.0, *)
+@available(macOS 16.0, *)
 public class FileCache: CacheData {
     public private(set) var tasks = [String: ToDoItem]()
 
@@ -61,7 +61,7 @@ public class FileCache: CacheData {
     }
 }
 
-@available(macOS 13.0, *)
+@available(macOS 16.0, *)
 extension FileCache {
     public enum FileCacheFormat {
         case json
