@@ -5,7 +5,7 @@ public struct ToDoItem {
     public let text: String
     public let importance: Required
     public let deadline: Date?
-    public let done: Bool
+    public var done: Bool
     public let created: Date
     public let changed: Date?
     public init(id: String = UUID().uuidString,

@@ -4,6 +4,7 @@ import Foundation
 @available(iOS 16.0, *)
 public protocol CacheData {
     var tasks: [String: ToDoItem] { get }
+    var tasksSorted: [ToDoItem] { get }
     func add(_ task: ToDoItem)
     @discardableResult func remove(id: String) -> ToDoItem?
     func save(title: String, format: FileCache.FileCacheFormat) throws
@@ -14,12 +15,14 @@ public protocol CacheData {
 @available(iOS 16.0, *)
 public class FileCache: CacheData {
     
-    public init() {
-        
-    }
+    public init() {}
     
     public private(set) var tasks = [String: ToDoItem]()
-
+    
+    public var tasksSorted: [ToDoItem] {
+        tasks.sorted { $0.value.created < $1.value.created }.map { $1 }
+    }
+    
     public func add(_ task: ToDoItem) {
         tasks[task.id] = task
     }
